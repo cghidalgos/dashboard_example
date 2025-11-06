@@ -41,6 +41,17 @@ Con esto tu base queda lista en Supabase.
 
 ---
 
+## Vista unificada para Looker Studio (importante)
+
+Looker Studio generalmente te deja elegir una sola tabla o vista por fuente. Para tener todas las columnas en una sola entidad, crea una vista unificada:
+
+1) Abre el SQL Editor de Supabase y ejecuta `sql/unified_view.sql` para crear `v_unificado_looker`.
+2) En Looker Studio, selecciona `v_unificado_looker` como fuente de datos y construye tus gráficos encima de esta vista.
+
+La vista ya hace los JOIN entre estudiantes, programas, semestres, hábitos, sesiones, videojuegos, géneros y plataformas. Si tu dataset no tiene `id_semestre` poblado en todas partes, está preparada con LEFT JOIN para no perder filas.
+
+Tambien puede copiar y pegar directamente en la consulta personalizada de looker, le quitas la vista `CREATE OR REPLACE VIEW v_unificado_looker AS`
+
 ## Referencia del modelo (opcional)
 
 Está escrito para PostgreSQL (uso de `SERIAL`, `BOOLEAN`, `TEXT`, `true/false`). Funciona en Supabase (PostgreSQL 14/15+).
@@ -64,6 +75,21 @@ Notas:
 
 - `semestres` no trae datos en `DML.sql` (puedes poblarla después si lo necesitas).
 - Si ejecutarás INSERTs sin especificar IDs, corre `sql/fix_sequences.sql` tras el DML para evitar conflictos con columnas `SERIAL`.
+
+## Vistas KPI listas para usar (opcional)
+
+Puedes crear las vistas ejecutando `sql/kpis.sql` en el SQL Editor de Supabase. Esto genera:
+
+- `v_sesiones_enriquecidas`: sesiones con joins y campos derivados (semana, mes, franja horaria, horas, etc.).
+- `kpi_horas_por_semana`: tendencia de horas y sesiones por semana ISO.
+- `kpi_horas_por_plataforma`: horas y sesiones por plataforma.
+- `kpi_horas_por_genero`: horas y sesiones por género de juego.
+- `kpi_top_videojuegos_30dias`: top de videojuegos por horas en los últimos 30 días.
+- `kpi_actividad_por_franja`: picos de juego por franja horaria (Mañana/Tarde/Noche/Madrugada).
+- `kpi_horas_por_estudiante`: top 50 estudiantes por horas jugadas.
+- `kpi_horas_por_mes`: horas y sesiones por mes (YYYY-MM).
+
+En Looker Studio puedes conectarte a estas vistas igual que a tablas y usarlas como fuente para gráficos.
 
 ## Alternativa: ejecución local con psql (opcional)
 
