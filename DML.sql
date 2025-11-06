@@ -3,6 +3,16 @@
 -- Generado automáticamente con Python + Faker
 -- =============================================
 
+-- TABLA: semestres
+INSERT INTO semestres (id_semestre, codigo_semestre, anio, periodo, fecha_inicio, fecha_fin) VALUES 
+(1, '2023-1', 2023, 'Primer Semestre', '2023-01-15', '2023-06-15'),
+(2, '2023-2', 2023, 'Segundo Semestre', '2023-07-15', '2023-12-15'),
+(3, '2024-1', 2024, 'Primer Semestre', '2024-01-15', '2024-06-15'),
+(4, '2024-2', 2024, 'Segundo Semestre', '2024-07-15', '2024-12-15'),
+(5, '2025-1', 2025, 'Primer Semestre', '2025-01-15', '2025-06-15'),
+(6, '2025-2', 2025, 'Segundo Semestre', '2025-07-15', '2025-12-15');
+
+-- TABLA: programas_academicos
 INSERT INTO programas_academicos (id_programa, nombre_programa, facultad, duracion_semestres, descripcion) VALUES (1, 'Ingeniería de Sistemas', 'Facultad de Ingeniería', 9, 'Programa de Ingeniería de Sistemas');
 INSERT INTO programas_academicos (id_programa, nombre_programa, facultad, duracion_semestres, descripcion) VALUES (2, 'Ingeniería Electrónica', 'Facultad de Ingeniería', 9, 'Programa de Ingeniería Electrónica');
 INSERT INTO programas_academicos (id_programa, nombre_programa, facultad, duracion_semestres, descripcion) VALUES (3, 'Ingeniería de Software', 'Facultad de Ingeniería', 9, 'Programa de Ingeniería de Software');
@@ -3943,3 +3953,24 @@ INSERT INTO habitos_juego (id_estudiante, horario_preferido, frecuencia_semanal,
 INSERT INTO habitos_juego (id_estudiante, horario_preferido, frecuencia_semanal, impacto_academico, razon_principal, juega_antes_examenes) VALUES (298, 'Noche', 'Alta', 'Alto', 'Diversión', true);
 INSERT INTO habitos_juego (id_estudiante, horario_preferido, frecuencia_semanal, impacto_academico, razon_principal, juega_antes_examenes) VALUES (299, 'Mañana', 'Media', 'Medio', 'Diversión', true);
 INSERT INTO habitos_juego (id_estudiante, horario_preferido, frecuencia_semanal, impacto_academico, razon_principal, juega_antes_examenes) VALUES (300, 'Noche', 'Alta', 'Alto', 'Diversión', false);
+
+-- TABLA: estadisticas_semestre
+INSERT INTO estadisticas_semestre (id_estadistica, id_estudiante, id_semestre, total_horas_jugadas, total_sesiones, videojuego_mas_jugado, plataforma_mas_usada) VALUES
+(1, 1, 5, 12.5, 8, 15, 4),
+(2, 2, 5, 25.3, 14, 6, 4),
+(3, 3, 5, 18.7, 13, 4, 1),
+(4, 4, 5, 3.2, 5, 20, 3),
+(5, 5, 5, 10.8, 7, 16, 5),
+(6, 6, 5, 14.6, 8, 18, 4),
+(7, 7, 5, 23.9, 15, 5, 4),
+(8, 8, 5, 4.5, 5, 7, 5),
+(9, 9, 5, 20.4, 16, 9, 2),
+(10, 10, 5, 31.2, 13, 12, 4),
+(11, 11, 5, 7.1, 6, 11, 5),
+(12, 12, 5, 27.8, 12, 18, 3),
+(13, 13, 5, 10.5, 9, 19, 5),
+(14, 14, 5, 9.8, 8, 12, 5),
+(15, 15, 5, 22.1, 11, 1, 1),
+(16, 16, 5, 31.9, 13, 8, 2),
+(17, 17, 5, 21.3, 13, 19, 5),
+(18, 18, 5, 23.5, 11, 17, 2);

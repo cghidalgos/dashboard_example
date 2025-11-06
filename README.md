@@ -22,8 +22,8 @@ Sugerencia: para conectarte desde Looker Studio, usa la vista unificada `v_unifi
 
 - En el proyecto de Supabase ve a: SQL Editor.
 - Abre el archivo `DDL.sql` de este repositorio, copia su contenido en el editor y presiona Run/Ejecutar.
-- Luego abre `DML.sql`, copia su contenido y ejecútalo también.
-- Opcional pero recomendado: ejecuta `sql/fix_sequences.sql` (incluido en este repo) para alinear las secuencias con los IDs insertados manualmente por el DML.
+- Luego abre `DML.sql`, copia su contenido y ejecútalo también (incluye datos de semestres y estadisticas_semestre).
+- Opcional pero recomendado: ejecuta `sql/fix_sequences.sql` para alinear las secuencias con los IDs insertados manualmente.
 
 Con esto tu base queda lista en Supabase.
 
@@ -121,7 +121,7 @@ Objetos principales creados por `DDL.sql`:
 
 Notas:
 
-- `semestres` no trae datos en `DML.sql` (puedes poblarla después si lo necesitas).
+- El `DML.sql` incluye datos para `semestres` (periodos 2023-1 a 2025-2) y `estadisticas_semestre` con valores de ejemplo.
 - Si ejecutarás INSERTs sin especificar IDs, corre `sql/fix_sequences.sql` tras el DML para evitar conflictos con columnas `SERIAL`.
 
 ## Vistas KPI listas para usar (opcional)
@@ -139,11 +139,4 @@ Puedes crear las vistas ejecutando `sql/kpis.sql` en el SQL Editor de Supabase. 
 
 En Looker Studio puedes conectarte a estas vistas igual que a tablas y usarlas como fuente para gráficos.
 
-## Alternativa: ejecución local con psql (opcional)
-
-En `scripts/` hay utilidades para macOS/Linux usando `psql` con variables de entorno estándar (PGHOST, PGPORT, PGUSER, PGPASSWORD, PGDATABASE):
-
-- `scripts/apply_ddl.sh` → aplica `DDL.sql`.
-- `scripts/apply_dml.sh` → aplica `DML.sql` y luego `sql/fix_sequences.sql`.
-
-Asegúrate de que tu cliente use UTF-8 (hay acentos y caracteres especiales) y formato de fechas/horas ISO.
+Develop by GHS
