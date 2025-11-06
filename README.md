@@ -1,6 +1,12 @@
 # Base de datos: ESTUDIANTES_VIDEOJUEGOS
 
-Guía rápida para montar la base en Supabase y visualizarla en Looker Studio (Google Data Studio).
+## Introducción
+
+Esta base de datos simula el ecosistema académico y de juego de estudiantes universitarios para analizar hábitos y patrones de uso de videojuegos. Incluye entidades como estudiantes, programas académicos, semestres, hábitos de juego, videojuegos, géneros, plataformas y sesiones de juego, con relaciones entre ellas para permitir análisis descriptivos útiles.
+
+Objetivo del ejercicio: cada estudiante debe formular una pregunta de negocio/analítica (por ejemplo, “¿qué plataformas usan más los estudiantes de mi programa?”, “¿cuáles son los picos de juego por franja horaria?”, “¿qué géneros concentran más horas por semana?”) y responderla construyendo visualizaciones en Looker Studio a partir de esta base.
+
+Sugerencia: para conectarte desde Looker Studio, usa la vista unificada `v_unificado_looker` (ver sección más abajo) o las vistas KPI (`sql/kpis.sql`) como fuentes de datos.
 
 ## 1) Crear cuenta en Supabase
 
