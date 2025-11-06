@@ -47,6 +47,48 @@ Con esto tu base queda lista en Supabase.
 
 ---
 
+## Preguntas guía
+
+Usa estas ideas para formular tu pregunta y contestarla con visualizaciones en Looker Studio. Elige una o combina varias según tu interés.
+
+- Tendencia y actividad
+	- ¿Cuántas horas totales se juegan por semana/mes? ¿La tendencia sube o baja?
+	- ¿Cuáles son los picos por día de la semana y franja horaria (Mañana/Tarde/Noche/Madrugada)?
+	- ¿Cómo se distribuyen las duraciones de sesión (mediana, p95)?
+
+- Plataformas y tecnologías
+	- ¿Qué plataformas concentran más horas y sesiones? ¿Cómo cambia en el tiempo?
+	- ¿Web vs. PC vs. Móvil: cuál domina por semana/mes?
+
+- Géneros y títulos
+	- ¿Qué géneros acumulan más horas? ¿Hay estacionalidad?
+	- ¿Cuáles son los videojuegos top en los últimos 30/60/90 días?
+
+- Perfil de estudiante
+	- ¿Quiénes son los estudiantes con más horas (Top N)? ¿Qué patrón de franjas tienen?
+	- ¿Existen diferencias por género del estudiante?
+
+- Programas y avance académico
+	- Por programa académico: ¿qué tanto se juega (horas/sesiones) y en qué plataformas?
+	- Por semestre cursando: ¿cambia el tiempo de juego a medida que avanzan?
+
+- Modalidades de juego
+	- ¿Qué proporción de sesiones es Online vs. Solo? ¿Y multijugador vs. no multijugador?
+	- ¿Las sesiones Online duran más que las Solo?
+
+- Ventana reciente
+	- En los últimos 30/60/90 días: ¿qué cambió en plataformas, géneros y títulos top?
+
+- Calidad de datos (sanidad)
+	- ¿Hay sesiones con duración atípica o horas de inicio/fin inconsistentes? ¿Cómo afectan los análisis?
+
+Sugerencia para responder:
+- Fuente: `v_unificado_looker` o alguna vista KPI de `sql/kpis.sql`.
+- Dimensiones típicas: semana (ISO), mes (YYYY-MM), plataforma, género de juego, videojuego, franja_horaria, programa, estudiante.
+- Métricas típicas: total_horas, total_minutos, total_sesiones, duración promedio.
+- Filtros útiles: ventana temporal (últimos 30/60/90 días), programa específico, plataforma o género.
+- Gráficos recomendados: series de tiempo para tendencia; barras apiladas para plataformas/géneros; tablas con Top N; heatmap por día vs. franja.
+
 ## Vista unificada para Looker Studio (importante)
 
 Looker Studio generalmente te deja elegir una sola tabla o vista por fuente. Para tener todas las columnas en una sola entidad, crea una vista unificada:
